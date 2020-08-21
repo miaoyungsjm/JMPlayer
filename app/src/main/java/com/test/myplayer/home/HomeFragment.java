@@ -1,15 +1,9 @@
 package com.test.myplayer.home;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.kunminx.architecture.ui.page.DataBindingConfig;
 import com.kunminx.architecture.ui.page.DataBindingFragment;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.test.myplayer.BR;
+import com.test.myplayer.R;
 
 /**
  * @author ggz
@@ -17,21 +11,15 @@ import androidx.annotation.Nullable;
  */
 public class HomeFragment extends DataBindingFragment {
 
+    HomeFragmentViewModel mHomeFragmentViewModel;
+
     @Override
     protected void initViewModel() {
-
+        mHomeFragmentViewModel = getFragmentViewModel(HomeFragmentViewModel.class);
     }
 
     @Override
     protected DataBindingConfig getDataBindingConfig() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return new DataBindingConfig(R.layout.fragment_home, BR.vm, mHomeFragmentViewModel);
     }
 }

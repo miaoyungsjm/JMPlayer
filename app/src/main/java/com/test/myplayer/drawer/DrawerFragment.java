@@ -7,29 +7,22 @@ import android.view.ViewGroup;
 
 import com.kunminx.architecture.ui.page.DataBindingConfig;
 import com.kunminx.architecture.ui.page.DataBindingFragment;
+import com.test.myplayer.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 /**
  * @author ggz
  * @date 2020/8/21
  */
-public class NavFragment extends DataBindingFragment {
-    @Override
-    protected void initViewModel() {
-
-    }
-
-    @Override
-    protected DataBindingConfig getDataBindingConfig() {
-        return null;
-    }
+public class DrawerFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_drawer, container, false);
+        return view;
     }
-
 }
