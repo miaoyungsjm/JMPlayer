@@ -3,24 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/home_fragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/home_fragment"
+        android:id="@+id/homeFragment"
         android:name="com.test.myplayer.home.HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_main_fragment_to_person_fragment"
-            app:destination="@id/person_fragment" />
+            android:id="@+id/action_homeFragment_to_personFragment"
+            app:destination="@id/personFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/person_fragment"
+        android:id="@+id/personFragment"
         android:name="com.test.myplayer.person.PersonFragment"
-        tools:layout="@layout/fragment_person">
+        tools:layout="@layout/fragment_person" >
         <action
-            android:id="@+id/action_person_fragment_to_main_fragment"
-            app:destination="@id/home_fragment" />
+            android:id="@+id/action_personFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 
 </navigation>

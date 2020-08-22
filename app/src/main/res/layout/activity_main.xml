@@ -16,9 +16,11 @@
 
         <fragment
             android:id="@+id/home_fragment_host"
-            android:name="com.test.myplayer.home.HomeFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_home" />
 
         <fragment
             android:id="@+id/drawer_fragment_host"

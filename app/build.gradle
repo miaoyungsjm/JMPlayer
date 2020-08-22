@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.test.myplayer"
-        minSdkVersion 26
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -23,6 +23,12 @@ android {
 
     buildFeatures {
         dataBinding true
+    }
+
+    compileOptions {
+//        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -41,13 +47,16 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
 
-    implementation 'com.kunminx.archi:strict-databinding:3.0.2-beta1'
-
     def nav_version = "2.3.0"
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
-    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+//    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+//    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    implementation 'com.kunminx.archi:strict-databinding:3.0.2-beta1'
+
+    implementation 'com.blankj:utilcodex:1.29.0'
 
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
+
 }
