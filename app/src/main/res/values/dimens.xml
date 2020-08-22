@@ -48,6 +48,11 @@
     <dimen name="round_padding_5">5dp</dimen>
     <!-- common end -->
 
+
+    <dimen name="drawer_photo_height">200dp</dimen>
+    <dimen name="drawer_item_width">0dp</dimen>
+    <dimen name="drawer_item_height">60dp</dimen>
+
     <dimen name="sliding_up_header">55dp</dimen>
     <dimen name="sliding_up_header_land">200dp</dimen>
     <dimen name="sliding_up_shadow">5dp</dimen>
