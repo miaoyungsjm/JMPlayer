@@ -44,8 +44,9 @@ public class MainActivity extends DataBindingActivity {
             public void onChanged(Integer position) {
                 Log.e(TAG, "onChanged: " + position);
 
-                DrawerLayout drawerLayout = findViewById(R.id.drawer);
-                drawerLayout.close();
+//                DrawerLayout drawerLayout = findViewById(R.id.drawer);
+//                drawerLayout.close();
+                mMainActivityViewModel.openDrawer.setValue(false);
 
                 NavController nav = Navigation.findNavController(MainActivity.this,
                         R.id.home_fragment_host);

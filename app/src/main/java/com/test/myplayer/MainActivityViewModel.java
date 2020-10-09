@@ -9,8 +9,9 @@ import androidx.lifecycle.ViewModel;
  */
 public class MainActivityViewModel extends ViewModel {
 
-    private MutableLiveData<Integer> navPosition = new MutableLiveData<>();
+    public final MutableLiveData<Boolean> openDrawer = new MutableLiveData<>();
 
+    private MutableLiveData<Integer> navPosition = new MutableLiveData<>();
     public MutableLiveData<Integer> getNavPosition() {
         return navPosition;
     }
