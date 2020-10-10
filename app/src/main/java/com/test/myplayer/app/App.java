@@ -1,4 +1,4 @@
-package com.test.myplayer;
+package com.test.myplayer.app;
 
 import com.kunminx.architecture.BaseApplication;
 

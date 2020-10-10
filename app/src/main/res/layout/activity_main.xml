@@ -6,7 +6,7 @@
 
         <variable
             name="vm"
-            type="com.test.myplayer.MainActivityViewModel" />
+            type="com.test.myplayer.main.MainActivityViewModel" />
 
     </data>
 

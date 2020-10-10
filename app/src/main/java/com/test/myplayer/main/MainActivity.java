@@ -1,21 +1,22 @@
-package com.test.myplayer;
+package com.test.myplayer.main;
 
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.drawerlayout.widget.DrawerLayout;
+import com.kunminx.architecture.ui.page.DataBindingConfig;
+import com.test.myplayer.BR;
+import com.test.myplayer.R;
+import com.test.myplayer.base.BaseActivity;
+
 import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
-import com.kunminx.architecture.ui.page.DataBindingActivity;
-import com.kunminx.architecture.ui.page.DataBindingConfig;
 
 /**
  * @author ggz
  * @date 2020/8/21
  */
-public class MainActivity extends DataBindingActivity {
+public class MainActivity extends BaseActivity {
     private final String TAG = MainActivity.class.getSimpleName();
     public final static int POSITION_HOME = 0;
     public final static int POSITION_LOGIN = 1;
@@ -26,7 +27,6 @@ public class MainActivity extends DataBindingActivity {
     @Override
     protected void initViewModel() {
         mMainActivityViewModel = getActivityViewModel(MainActivityViewModel.class);
-
     }
 
     @Override
@@ -44,8 +44,6 @@ public class MainActivity extends DataBindingActivity {
             public void onChanged(Integer position) {
                 Log.e(TAG, "onChanged: " + position);
 
-//                DrawerLayout drawerLayout = findViewById(R.id.drawer);
-//                drawerLayout.close();
                 mMainActivityViewModel.openDrawer.setValue(false);
 
                 NavController nav = Navigation.findNavController(MainActivity.this,

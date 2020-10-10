@@ -1,4 +1,4 @@
-package com.test.myplayer;
+package com.test.myplayer.main;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

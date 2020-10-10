@@ -2,6 +2,6 @@
     <string name="app_name">MyPlayer</string>
 
     <string name="str_home">home</string>
-    <string name="str_login">login</string>s
+    <string name="str_login">login</string>
     <string name="str_settings">setting</string>
 </resources>

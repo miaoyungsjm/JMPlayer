@@ -5,12 +5,12 @@ import android.view.View;
 import com.kunminx.architecture.ui.page.DataBindingConfig;
 import com.kunminx.architecture.ui.page.DataBindingFragment;
 import com.test.myplayer.BR;
-import com.test.myplayer.MainActivityViewModel;
+import com.test.myplayer.main.MainActivityViewModel;
 import com.test.myplayer.R;
 
-import static com.test.myplayer.MainActivity.POSITION_HOME;
-import static com.test.myplayer.MainActivity.POSITION_LOGIN;
-import static com.test.myplayer.MainActivity.POSITION_SETTINGS;
+import static com.test.myplayer.main.MainActivity.POSITION_HOME;
+import static com.test.myplayer.main.MainActivity.POSITION_LOGIN;
+import static com.test.myplayer.main.MainActivity.POSITION_SETTINGS;
 
 /**
  * @author ggz
