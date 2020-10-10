@@ -7,7 +7,6 @@
         <variable
             name="vm"
             type="com.test.myplayer.main.MainActivityViewModel" />
-
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout

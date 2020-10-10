@@ -4,4 +4,9 @@
     <string name="str_home">home</string>
     <string name="str_login">login</string>
     <string name="str_settings">setting</string>
+
+    <!-- home fragment-->
+    <string name="str_person">我的</string>
+    <string name="str_discovery">发现</string>
+    <string name="str_square">广场</string>
 </resources>

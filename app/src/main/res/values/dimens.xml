@@ -53,6 +53,11 @@
     <dimen name="drawer_item_width">0dp</dimen>
     <dimen name="drawer_item_height">60dp</dimen>
 
+    <dimen name="home_top_bar_iv_width">30dp</dimen>
+    <dimen name="home_top_bar_iv_height">30dp</dimen>
+    <dimen name="home_top_bar_tv_width">40dp</dimen>
+    <dimen name="home_top_bar_tv_height">40dp</dimen>
+
     <dimen name="sliding_up_header">55dp</dimen>
     <dimen name="sliding_up_header_land">200dp</dimen>
     <dimen name="sliding_up_shadow">5dp</dimen>
