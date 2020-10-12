@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="topTabArray">
+        <item>@string/str_person</item>
+        <item>@string/str_discovery</item>
+        <item>@string/str_square</item>
+    </string-array>
+</resources>

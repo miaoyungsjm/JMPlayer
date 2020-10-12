@@ -25,28 +25,23 @@
 
             <ImageView
                 android:id="@+id/iv_home_drawer"
-                style="@style/style_home_top_bar_iv"
+                style="@style/style_home_top_tab_iv"
                 sothree:layout_constraintLeft_toLeftOf="parent"
                 sothree:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/iv_home_search"
-                style="@style/style_home_top_bar_iv"
+                style="@style/style_home_top_tab_iv"
                 sothree:layout_constraintRight_toRightOf="parent"
                 sothree:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/v_home_split_line"
-                android:layout_width="30dp"
-                android:layout_height="2dp"
-                android:src="@color/colorAccent"
-                sothree:layout_constraintLeft_toRightOf="@id/rg_home_top_bar"
-                sothree:layout_constraintTop_toBottomOf="@id/rg_home_top_bar" />
-
             <RadioGroup
-                android:id="@+id/rg_home_top_bar"
+                android:id="@+id/rg_home_top_tab"
+                initTabAndPage="@{vm.initTabAndPage}"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/home_top_bar_tv_height"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
                 sothree:layout_constraintBottom_toTopOf="@id/iv_home_drawer"
                 sothree:layout_constraintLeft_toRightOf="@id/iv_home_drawer"
                 sothree:layout_constraintRight_toLeftOf="@id/iv_home_search"
@@ -56,7 +51,9 @@
                 android:id="@+id/vp_fragment_host"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                sothree:layout_constraintTop_toBottomOf="@id/v_home_split_line" />
+                android:layout_marginTop="@dimen/home_top_tab_iv_margin"
+                sothree:layout_constraintBottom_toBottomOf="parent"
+                sothree:layout_constraintTop_toBottomOf="@id/iv_home_drawer" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
