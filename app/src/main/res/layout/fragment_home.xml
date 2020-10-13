@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:sothree="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -17,10 +17,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
-        sothree:umanoDragView="@+id/slide_fragment_host"
-        sothree:umanoOverlay="false"
-        sothree:umanoPanelHeight="@dimen/sliding_up_header"
-        sothree:umanoShadowHeight="@dimen/sliding_up_shadow">
+        app:umanoDragView="@+id/slide_fragment_host"
+        app:umanoOverlay="false"
+        app:umanoPanelHeight="@dimen/sliding_up_header"
+        app:umanoShadowHeight="@dimen/sliding_up_shadow">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -31,14 +31,14 @@
                 android:id="@+id/iv_home_drawer"
                 style="@style/style_home_top_tab_iv"
                 android:onClick="@{() -> click.openDrawer()}"
-                sothree:layout_constraintLeft_toLeftOf="parent"
-                sothree:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/iv_home_search"
                 style="@style/style_home_top_tab_iv"
-                sothree:layout_constraintRight_toRightOf="parent"
-                sothree:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <RadioGroup
                 android:id="@+id/rg_home_top_tab"
@@ -46,18 +46,18 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                sothree:layout_constraintBottom_toTopOf="@id/iv_home_drawer"
-                sothree:layout_constraintLeft_toRightOf="@id/iv_home_drawer"
-                sothree:layout_constraintRight_toLeftOf="@id/iv_home_search"
-                sothree:layout_constraintTop_toBottomOf="@id/iv_home_drawer" />
+                app:layout_constraintBottom_toTopOf="@id/iv_home_drawer"
+                app:layout_constraintLeft_toRightOf="@id/iv_home_drawer"
+                app:layout_constraintRight_toLeftOf="@id/iv_home_search"
+                app:layout_constraintTop_toBottomOf="@id/iv_home_drawer" />
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/vp_fragment_host"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="@dimen/home_top_tab_iv_margin"
-                sothree:layout_constraintBottom_toBottomOf="parent"
-                sothree:layout_constraintTop_toBottomOf="@id/iv_home_drawer" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_home_drawer" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

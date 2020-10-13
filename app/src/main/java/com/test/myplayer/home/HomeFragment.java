@@ -13,7 +13,6 @@ import com.test.myplayer.BR;
 import com.test.myplayer.R;
 import com.test.myplayer.adapter.HomePagerAdapter;
 import com.test.myplayer.discovery.DiscoveryFragment;
-import com.test.myplayer.drawer.DrawerFragment;
 import com.test.myplayer.main.MainActivityViewModel;
 import com.test.myplayer.person.PersonFragment;
 import com.test.myplayer.square.SquareFragment;
@@ -55,9 +54,10 @@ public class HomeFragment extends DataBindingFragment {
     }
 
     private void initView(View v) {
-        List<Fragment> fragmentList = new ArrayList<>();
-
         RadioGroup radioGroup = v.findViewById(R.id.rg_home_top_tab);
+        ViewPager viewPager = v.findViewById(R.id.vp_fragment_host);
+
+        List<Fragment> fragmentList = new ArrayList<>();
         String[] topTabArray = StringUtils.getStringArray(R.array.topTabArray);
         for (int i = 0; i < topTabArray.length; i++) {
             RadioButton radioButton = (RadioButton) getLayoutInflater().inflate(
@@ -84,11 +84,34 @@ public class HomeFragment extends DataBindingFragment {
                 fragmentList.add(fragment);
             }
         }
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                viewPager.setCurrentItem(i);
+            }
+        });
 
-        ViewPager viewPager = v.findViewById(R.id.vp_fragment_host);
         HomePagerAdapter homePagerAdapter = new HomePagerAdapter(
                 getChildFragmentManager(), 0, fragmentList);
         viewPager.setAdapter(homePagerAdapter);
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                RadioButton radioButton = (RadioButton) radioGroup.getChildAt(position);
+                radioButton.setChecked(true);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        viewPager.setCurrentItem(1);
     }
 
     public class ClickProxy {
@@ -96,6 +119,5 @@ public class HomeFragment extends DataBindingFragment {
         public void openDrawer() {
             mMainActivityViewModel.openDrawer.setValue(true);
         }
-
     }
 }

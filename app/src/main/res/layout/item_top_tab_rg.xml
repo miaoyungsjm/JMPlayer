@@ -4,6 +4,7 @@
     android:layout_height="@dimen/home_top_tab_rb_height"
     android:button="@null"
     android:padding="@dimen/home_top_tab_rb_padding"
+    android:textColor="@drawable/selector_top_tab_rb"
     android:textSize="@dimen/text_size_tiny">
 
 </RadioButton>
