@@ -7,6 +7,10 @@
         <variable
             name="vm"
             type="com.test.myplayer.home.HomeFragmentViewModel" />
+
+        <variable
+            name="click"
+            type="com.test.myplayer.home.HomeFragment.ClickProxy" />
     </data>
 
     <com.sothree.slidinguppanel.SlidingUpPanelLayout
@@ -26,6 +30,7 @@
             <ImageView
                 android:id="@+id/iv_home_drawer"
                 style="@style/style_home_top_tab_iv"
+                android:onClick="@{() -> click.openDrawer()}"
                 sothree:layout_constraintLeft_toLeftOf="parent"
                 sothree:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +42,6 @@
 
             <RadioGroup
                 android:id="@+id/rg_home_top_tab"
-                initTabAndPage="@{vm.initTabAndPage}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
