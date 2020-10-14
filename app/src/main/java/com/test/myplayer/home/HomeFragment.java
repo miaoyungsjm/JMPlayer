@@ -1,10 +1,13 @@
 package com.test.myplayer.home;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 
 import com.blankj.utilcode.util.StringUtils;
 import com.kunminx.architecture.ui.page.DataBindingConfig;
@@ -22,6 +25,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -97,13 +101,25 @@ public class HomeFragment extends DataBindingFragment {
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+//                RadioButton radioButton = (RadioButton) radioGroup.getChildAt(position);
+//                ImageView tabLineIv = v.findViewById(R.id.iv_tab_line);
+//                ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) tabLineIv.getLayoutParams();
+//                lp.leftMargin = radioButton.getLeft() + radioButton.getWidth() / 2 -
+//                        tabLineIv.getWidth() / 2 + (int) (radioButton.getWidth() * positionOffset);
+//                tabLineIv.setLayoutParams(lp);
             }
 
             @Override
             public void onPageSelected(int position) {
-                RadioButton radioButton = (RadioButton) radioGroup.getChildAt(position);
-                radioButton.setChecked(true);
+                for (int i = 0; i < radioGroup.getChildCount(); i++) {
+                    RadioButton radioButton = (RadioButton) radioGroup.getChildAt(i);
+                    if (i == position) {
+                        radioButton.setChecked(true);
+                        radioButton.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                    } else {
+                        radioButton.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    }
+                }
             }
 
             @Override
