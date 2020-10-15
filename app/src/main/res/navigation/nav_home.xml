@@ -2,43 +2,51 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_main"
+    android:id="@+id/nav_home"
     app:startDestination="@id/homeFragment">
-
-    <action
-        android:id="@+id/action_global_homeFragment"
-        app:destination="@id/homeFragment" />
-
-    <action
-        android:id="@+id/action_global_settingsFragment"
-        app:destination="@id/settingsFragment" />
-
-    <action
-        android:id="@+id/action_global_loginFragment"
-        app:destination="@id/loginFragment" />
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.test.myplayer.home.HomeFragment"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
 
         <action
-            android:id="@+id/action_homeFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            android:id="@+id/action_homeFragment_to_squareFragment"
+            app:destination="@id/squareFragment" />
 
         <action
-            android:id="@+id/action_homeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_homeFragment_to_playlistFragment"
+            app:destination="@id/playlistFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.test.myplayer.settings.SettingsFragment"
-        tools:layout="@layout/fragment_settings" />
+        android:id="@+id/searchFragment"
+        android:name="com.test.myplayer.search.SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.test.myplayer.login.loginFragment"
-        tools:layout="@layout/fragment_login" />
+        android:id="@+id/searchResultFragment"
+        android:name="com.test.myplayer.search.SearchResultFragment"
+        tools:layout="@layout/fragment_search_result" />
 
+    <fragment
+        android:id="@+id/squareFragment"
+        android:name="com.test.myplayer.square.SquareFragment"
+        tools:layout="@layout/fragment_square">
+        <action
+            android:id="@+id/action_squareFragment_to_playlistFragment"
+            app:destination="@id/playlistFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/playlistFragment"
+        android:name="com.test.myplayer.playlist.playlistFragment"
+        tools:layout="@layout/fragment_playlist" />
 </navigation>

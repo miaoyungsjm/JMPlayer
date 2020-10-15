@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">MyPlayer</string>
 
-    <string name="str_home">home</string>
-    <string name="str_login">login</string>
-    <string name="str_settings">setting</string>
+    <string name="str_login">登录</string>
+    <string name="str_settings">设置</string>
+    <string name="str_help">帮助与反馈</string>
+    <string name="str_about">关于</string>
 
     <!-- home fragment-->
     <string name="str_person">我的</string>
     <string name="str_discovery">发现</string>
-    <string name="str_square">广场</string>
+    <string name="str_video">视频</string>
 </resources>

@@ -3,11 +3,11 @@ package com.test.myplayer.home;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 
 import com.blankj.utilcode.util.StringUtils;
 import com.kunminx.architecture.ui.page.DataBindingConfig;
@@ -18,15 +18,16 @@ import com.test.myplayer.adapter.HomePagerAdapter;
 import com.test.myplayer.discovery.DiscoveryFragment;
 import com.test.myplayer.main.MainActivityViewModel;
 import com.test.myplayer.person.PersonFragment;
-import com.test.myplayer.square.SquareFragment;
+import com.test.myplayer.video.VideoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
 
 /**
@@ -34,9 +35,13 @@ import androidx.viewpager.widget.ViewPager;
  * @date 2020/8/21
  */
 public class HomeFragment extends DataBindingFragment {
+    private final String TAG = this.getClass().getSimpleName();
 
     HomeFragmentViewModel mHomeFragmentViewModel;
     MainActivityViewModel mMainActivityViewModel;
+
+    private boolean isNavigationViewInit = false;
+    private View rootView = null;
 
     @Override
     protected void initViewModel() {
@@ -50,14 +55,30 @@ public class HomeFragment extends DataBindingFragment {
                 .addBindingParam(BR.click, new ClickProxy());
     }
 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.e(TAG, "onCreateView: ");
+        if (rootView == null) {
+            rootView = super.onCreateView(inflater, container, savedInstanceState);
+        }
+        return rootView;
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        initView(view);
+        Log.e(TAG, "onViewCreated: view: " + view);
+        Log.e(TAG, "onViewCreated: isNavigationViewInit: " + isNavigationViewInit);
+        if (!isNavigationViewInit) {
+            initView(view);
+            isNavigationViewInit = true;
+        }
     }
 
     private void initView(View v) {
+        Log.e(TAG, "initView: ");
+
         RadioGroup radioGroup = v.findViewById(R.id.rg_home_top_tab);
         ViewPager viewPager = v.findViewById(R.id.vp_fragment_host);
 
@@ -78,8 +99,8 @@ public class HomeFragment extends DataBindingFragment {
                 fragment = new PersonFragment();
             } else if (topTabArray[i].equals(StringUtils.getString(R.string.str_discovery))) {
                 fragment = new DiscoveryFragment();
-            } else if (topTabArray[i].equals(StringUtils.getString(R.string.str_square))) {
-                fragment = new SquareFragment();
+            } else if (topTabArray[i].equals(StringUtils.getString(R.string.str_video))) {
+                fragment = new VideoFragment();
             } else {
                 fragment = null;
             }
@@ -131,9 +152,13 @@ public class HomeFragment extends DataBindingFragment {
     }
 
     public class ClickProxy {
-
         public void openDrawer() {
             mMainActivityViewModel.openDrawer.setValue(true);
+        }
+
+        public void toSearch() {
+            NavController nc = Navigation.findNavController(getActivity(), R.id.home_fragment_host);
+            nc.navigate(R.id.action_homeFragment_to_searchFragment);
         }
     }
 }

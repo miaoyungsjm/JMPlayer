@@ -1,16 +1,15 @@
 package com.test.myplayer.drawer;
 
+import android.content.Intent;
 import android.view.View;
 
 import com.kunminx.architecture.ui.page.DataBindingConfig;
 import com.kunminx.architecture.ui.page.DataBindingFragment;
 import com.test.myplayer.BR;
-import com.test.myplayer.main.MainActivityViewModel;
 import com.test.myplayer.R;
-
-import static com.test.myplayer.main.MainActivity.POSITION_HOME;
-import static com.test.myplayer.main.MainActivity.POSITION_LOGIN;
-import static com.test.myplayer.main.MainActivity.POSITION_SETTINGS;
+import com.test.myplayer.login.LoginActivity;
+import com.test.myplayer.main.MainActivityViewModel;
+import com.test.myplayer.settings.SettingsActivity;
 
 /**
  * @author ggz
@@ -35,21 +34,19 @@ public class DrawerFragment extends DataBindingFragment {
 
     public class ClickProxy {
         public void itemClick(View view) {
-            int position = 0;
             switch (view.getId()) {
-                case R.id.tv_drawer_home:
-                    position = POSITION_HOME;
-                    break;
                 case R.id.tv_drawer_login:
-                    position = POSITION_LOGIN;
+                    Intent intent0 = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent0);
                     break;
                 case R.id.tv_drawer_settings:
-                    position = POSITION_SETTINGS;
+                    Intent intent1 = new Intent(getActivity(), SettingsActivity.class);
+                    startActivity(intent1);
                     break;
                 default:
                     break;
             }
-            mMainActivityViewModel.getNavPosition().setValue(position);
+            mMainActivityViewModel.openDrawer.setValue(false);
         }
     }
 }

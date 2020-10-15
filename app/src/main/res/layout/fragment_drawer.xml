@@ -28,22 +28,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_drawer_home"
-            style="@style/style_drawer_item"
-            android:onClick="@{(v) -> click.itemClick(v)}"
-            android:text="@string/str_home"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_drawer_photo" />
-
-        <TextView
             android:id="@+id/tv_drawer_login"
             style="@style/style_drawer_item"
             android:onClick="@{(v) -> click.itemClick(v)}"
             android:text="@string/str_login"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_drawer_home" />
+            app:layout_constraintTop_toBottomOf="@id/iv_drawer_photo" />
 
         <TextView
             android:id="@+id/tv_drawer_settings"

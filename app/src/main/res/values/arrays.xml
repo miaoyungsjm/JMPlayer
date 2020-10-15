@@ -3,6 +3,6 @@
     <string-array name="topTabArray">
         <item>@string/str_person</item>
         <item>@string/str_discovery</item>
-        <item>@string/str_square</item>
+        <item>@string/str_video</item>
     </string-array>
 </resources>
