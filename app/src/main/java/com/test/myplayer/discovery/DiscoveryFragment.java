@@ -8,6 +8,7 @@ import com.kunminx.architecture.ui.page.DataBindingConfig;
 import com.kunminx.architecture.ui.page.DataBindingFragment;
 import com.test.myplayer.BR;
 import com.test.myplayer.R;
+import com.test.myplayer.base.BaseFragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,8 +37,13 @@ public class DiscoveryFragment extends DataBindingFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Log.e(TAG, "onViewCreated: view: " + view);
         super.onViewCreated(view, savedInstanceState);
-        Log.e(TAG, "onViewCreated: ");
+        initView(view);
+    }
+
+    protected void initView(View v) {
+
     }
 
     public class ClickProxy {

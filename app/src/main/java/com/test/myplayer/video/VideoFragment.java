@@ -1,27 +1,44 @@
 package com.test.myplayer.video;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 
+import com.kunminx.architecture.ui.page.DataBindingConfig;
+import com.kunminx.architecture.ui.page.DataBindingFragment;
+import com.test.myplayer.BR;
 import com.test.myplayer.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 /**
  * @author ggz
  * @date 2020/8/21
  */
-public class VideoFragment extends Fragment {
+public class VideoFragment extends DataBindingFragment {
+    private final String TAG = this.getClass().getSimpleName();
 
-    @Nullable
+    VideoViewModel mVideoViewModel;
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_video, container, false);
-        return view;
+    protected void initViewModel() {
+        mVideoViewModel = getFragmentViewModel(VideoViewModel.class);
+    }
+
+    @Override
+    protected DataBindingConfig getDataBindingConfig() {
+        return new DataBindingConfig(R.layout.fragment_video, BR.vm, mVideoViewModel);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Log.e(TAG, "onViewCreated: view: " + view);
+        super.onViewCreated(view, savedInstanceState);
+        initView(view);
+    }
+
+    protected void initView(View v) {
+
     }
 }

@@ -15,6 +15,7 @@ import com.kunminx.architecture.ui.page.DataBindingFragment;
 import com.test.myplayer.BR;
 import com.test.myplayer.R;
 import com.test.myplayer.adapter.HomePagerAdapter;
+import com.test.myplayer.base.BaseFragment;
 import com.test.myplayer.discovery.DiscoveryFragment;
 import com.test.myplayer.main.MainActivityViewModel;
 import com.test.myplayer.person.PersonFragment;
@@ -40,9 +41,6 @@ public class HomeFragment extends DataBindingFragment {
     HomeFragmentViewModel mHomeFragmentViewModel;
     MainActivityViewModel mMainActivityViewModel;
 
-    private boolean isNavigationViewInit = false;
-    private View rootView = null;
-
     @Override
     protected void initViewModel() {
         mHomeFragmentViewModel = getFragmentViewModel(HomeFragmentViewModel.class);
@@ -59,24 +57,19 @@ public class HomeFragment extends DataBindingFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.e(TAG, "onCreateView: ");
-        if (rootView == null) {
-            rootView = super.onCreateView(inflater, container, savedInstanceState);
-        }
-        return rootView;
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
         Log.e(TAG, "onViewCreated: view: " + view);
-        Log.e(TAG, "onViewCreated: isNavigationViewInit: " + isNavigationViewInit);
-        if (!isNavigationViewInit) {
-            initView(view);
-            isNavigationViewInit = true;
-        }
+        super.onViewCreated(view, savedInstanceState);
+
+        // todo: Navigation.popBackStack() 重走问题
+        initView(view);
     }
 
-    private void initView(View v) {
+    protected void initView(View v) {
         Log.e(TAG, "initView: ");
 
         RadioGroup radioGroup = v.findViewById(R.id.rg_home_top_tab);

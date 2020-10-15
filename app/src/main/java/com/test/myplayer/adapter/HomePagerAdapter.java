@@ -1,11 +1,5 @@
 package com.test.myplayer.adapter;
 
-import com.kunminx.architecture.ui.page.DataBindingFragment;
-import com.test.myplayer.discovery.DiscoveryFragment;
-import com.test.myplayer.person.PersonFragment;
-import com.test.myplayer.square.SquareFragment;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
