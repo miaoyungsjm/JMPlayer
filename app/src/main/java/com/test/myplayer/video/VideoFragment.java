@@ -1,13 +1,12 @@
 package com.test.myplayer.video;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.kunminx.architecture.ui.page.DataBindingConfig;
-import com.kunminx.architecture.ui.page.DataBindingFragment;
 import com.test.myplayer.BR;
 import com.test.myplayer.R;
+import com.test.myplayer.base.BaseFragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,7 +15,7 @@ import androidx.annotation.Nullable;
  * @author ggz
  * @date 2020/8/21
  */
-public class VideoFragment extends DataBindingFragment {
+public class VideoFragment extends BaseFragment {
     private final String TAG = this.getClass().getSimpleName();
 
     VideoViewModel mVideoViewModel;
@@ -33,11 +32,10 @@ public class VideoFragment extends DataBindingFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Log.e(TAG, "onViewCreated: view: " + view);
         super.onViewCreated(view, savedInstanceState);
-        initView(view);
     }
 
+    @Override
     protected void initView(View v) {
 
     }

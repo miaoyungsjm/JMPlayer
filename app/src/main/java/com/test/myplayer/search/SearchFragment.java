@@ -44,4 +44,10 @@ public class SearchFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onDestroyView() {
+        Log.e(TAG, "onDestroyView: ");
+        super.onDestroyView();
+    }
 }

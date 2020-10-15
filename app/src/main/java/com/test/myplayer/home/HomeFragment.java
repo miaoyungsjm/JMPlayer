@@ -35,7 +35,7 @@ import androidx.viewpager.widget.ViewPager;
  * @author ggz
  * @date 2020/8/21
  */
-public class HomeFragment extends DataBindingFragment {
+public class HomeFragment extends BaseFragment {
     private final String TAG = this.getClass().getSimpleName();
 
     HomeFragmentViewModel mHomeFragmentViewModel;
@@ -63,14 +63,19 @@ public class HomeFragment extends DataBindingFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Log.e(TAG, "onViewCreated: view: " + view);
+        Log.e(TAG, "onViewCreated: init: " + isNavigationViewInit);
         super.onViewCreated(view, savedInstanceState);
-
-        // todo: Navigation.popBackStack() 重走问题
-        initView(view);
     }
 
+    @Override
+    public void onDestroyView() {
+        Log.e(TAG, "onDestroyView: parent: " + (ViewGroup) rootView.getParent() + ", rootView: " + rootView);
+        super.onDestroyView();
+    }
+
+    @Override
     protected void initView(View v) {
-        Log.e(TAG, "initView: ");
+        Log.e(TAG, "initView !!!");
 
         RadioGroup radioGroup = v.findViewById(R.id.rg_home_top_tab);
         ViewPager viewPager = v.findViewById(R.id.vp_fragment_host);

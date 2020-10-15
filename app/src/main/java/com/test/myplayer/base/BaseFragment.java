@@ -1,6 +1,7 @@
 package com.test.myplayer.base;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,15 @@ public abstract class BaseFragment extends DataBindingFragment {
             initView(view);
             isNavigationViewInit = true;
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        ViewGroup viewGroup = (ViewGroup) rootView.getParent();
+        if (viewGroup != null) {
+            viewGroup.removeView(rootView);
+        }
+        super.onDestroyView();
     }
 
     protected abstract void initView(View v);

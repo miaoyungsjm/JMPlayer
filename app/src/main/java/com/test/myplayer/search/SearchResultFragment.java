@@ -32,4 +32,10 @@ public class SearchResultFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Log.e(TAG, "onViewCreated: ");
     }
+
+    @Override
+    public void onDestroyView() {
+        Log.e(TAG, "onDestroyView: ");
+        super.onDestroyView();
+    }
 }
